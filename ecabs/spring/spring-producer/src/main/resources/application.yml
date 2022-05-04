@@ -1,0 +1,20 @@
+spring:
+  application:
+    name: producer
+  kafka:
+    bootstrap-servers: http://localhost:9092
+
+server:
+  port: 8080
+  servlet:
+    context-path: /ecabs/api
+
+greeting:
+  topic:
+    name: greeting
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"

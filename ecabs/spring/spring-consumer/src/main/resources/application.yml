@@ -1,0 +1,11 @@
+spring:
+  application:
+    name: consumer
+  kafka:
+    bootstrap-servers: http://localhost:9092
+server:
+  port: 8082
+
+greeting:
+  topic:
+    name: greeting
