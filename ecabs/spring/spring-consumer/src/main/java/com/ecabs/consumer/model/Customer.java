@@ -10,5 +10,5 @@ import lombok.*;
 public class Customer {
 
     private Long customerId;
-   /* private String status;*/
+    private String status;
 }
