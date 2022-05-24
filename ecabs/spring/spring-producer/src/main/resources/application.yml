@@ -12,6 +12,9 @@ server:
 greeting:
   topic:
     name: greeting
+customer:
+  topic:
+    name : customer
 
 management:
   endpoints:

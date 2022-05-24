@@ -1,10 +1,11 @@
 package com.ecabs.producer.controller.impl;
 
-import com.ecabs.producer.controller.GreetingOperations;
 import com.ecabs.common.model.Greeting;
 import com.ecabs.common.model.WrapperCollectionResponse;
 import com.ecabs.common.model.WrapperResponse;
+import com.ecabs.producer.controller.GreetingOperations;
 import com.ecabs.producer.service.GreetingService;
+import com.fasterxml.jackson.core.JsonProcessingException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -17,7 +18,7 @@ public class GreetingController implements GreetingOperations {
     private final GreetingService greetingService;
 
     @Override
-    public WrapperCollectionResponse<Greeting> getAll() {
+    public WrapperCollectionResponse<Greeting> getAll() throws JsonProcessingException {
         return WrapperCollectionResponse.of(greetingService.getAll());
     }
 
