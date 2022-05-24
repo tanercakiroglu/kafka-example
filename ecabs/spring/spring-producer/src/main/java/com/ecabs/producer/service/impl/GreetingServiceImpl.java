@@ -44,25 +44,7 @@ public class GreetingServiceImpl implements GreetingService {
     private void sendMessage(Customer customer) throws JsonProcessingException {
 
         var payload = objectMapper.writeValueAsString(customer);
-        Customer customerNull= null;
-     /*   var nullPayload = objectMapper.writeValueAsString(customerNull);
-        ListenableFuture<SendResult<String, String>> futureNull = kafkaTemplate.send(customerTopicName, nullPayload);*/
-       ListenableFuture<SendResult<String, String>> future = kafkaTemplate.send(customerTopicName, payload);
-
-     /*   futureNull.addCallback(new ListenableFutureCallback<>() {
-
-            @Override
-            public void onSuccess(SendResult<String, String> result) {
-                System.out.println("Sent message=[" + nullPayload + "] with offset=[" + result.getRecordMetadata()
-                        .offset() + "]");
-            }
-
-            @Override
-            public void onFailure(Throwable ex) {
-                System.out.println("Unable to send message=[" + payload + "] due to : " + ex.getMessage());
-            }
-        });*/
-
+        ListenableFuture<SendResult<String, String>> future = kafkaTemplate.send(customerTopicName, payload);
         future.addCallback(new ListenableFutureCallback<>() {
 
             @Override
